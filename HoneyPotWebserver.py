@@ -61,7 +61,7 @@ class HoneyPotHandler(server.BaseHTTPRequestHandler):
 #processed synchronously and handled with an instance of the HoneyPotHandler
 class main:
     #Set some host defaults first
-    hostName = "localhost"
+    hostName = "0.0.0.0"
     port = 8080
     sec_time = 5
     try:
