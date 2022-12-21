@@ -1,7 +1,7 @@
 # PythonHoneyPot
-A Simple Python *honey pot* web server which intercepts *GET* requests and displays a text stream of messages using *chunked transfer encoding*. The idea behind the honey pot is to lure any malicious bots which could be scraping the site for vulnerabilities. Once the request is estalished - the stream starts sending infinite UTF-8 encoded text as *chunks* with a delay `SECONDS_PER_MESSAGE` between each chunk - effectively wasting the resources of the connected bot. 
+A Simple Python *honey pot* web server which intercepts *GET* requests and responds with a text stream of messages using *chunked transfer encoding*. The idea behind the honey pot is to lure any malicious bots which could be scraping the site for vulnerabilities. Once the request is estalished - the response starts with an appropriate header and in the body sends infinite UTF-8 encoded text as *chunks* with a delay `SECONDS_PER_MESSAGE` between each chunk - effectively wasting the resources of the connected bot. 
 
-Each text chunk is encoded as follows in the request:
+Each text chunk is encoded as follows in the response:
 >{*length in bytes of data in hex*}\r\n{*data*}\r\n
 
 This repeats infinitely but could be modified to teminate the connection by sending a 0:
@@ -22,11 +22,11 @@ Inside the project root folder: Simply run the webserver using the following pyt
 
 Feel free to change the HOSTNAME, PORT, and SECONDS_PER_MESSAGE congigurations in the *config.ini* file, otherwise defaults will be supplied by the program. 
 
-Default congiguration file contains:
+Default configuration file contains:
 >[DEFAULT]
->HOSTNAME = 0.0.0.0
->PORT = 8080
->SECONDS_PER_MESSAGE = 1
+>HOSTNAME = 0.0.0.0  
+>PORT = 8080  
+>SECONDS_PER_MESSAGE = 1  
 
 ### Running with Docker:
 To run the program from within Docker navigate to the root of the project which contains the supplied *DockerFile*. This sets the virtual Python environment to 3.9 and builds the recipe for the image.
