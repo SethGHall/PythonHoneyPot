@@ -4,7 +4,7 @@ A Simple Python *honey pot* web server which intercepts *GET* requests and respo
 Each text chunk is encoded as follows in the response:
 >{*length in bytes of data in hex*}\r\n{*data*}\r\n
 
-This repeats infinitely but could be modified to teminate the connection by sending a 0:
+This repeats infinitely but could be modified to terminate the connection by sending a 0:
 >0\r\n\r\n
 
 The program doesn't use any extra frameworks - only core Python3 libraries. The program was tested using the Python:3.9 environment and the connected clients tested using *curl*, and *Chrome* web browser. The web server uses the base class `ThreadingHTTPServer` to listen for incoming client connections which are then handled by a subclass of `BaseHTTPRequestHandler`. Limitations of the program depend on these python classes and host server hardware. The documentations states that `ThreadingHTTPServer` pre-allocates 100 listening threads to handle incoming client connections and can upscale as necessary. 
