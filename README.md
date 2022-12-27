@@ -20,7 +20,7 @@ Inside the project root folder: Simply run the webserver using the following pyt
 > python HoneyPotWebserver.py  
 ```
 
-Feel free to change the HOSTNAME, PORT, and SECONDS_PER_MESSAGE congigurations in the *config.ini* file, otherwise defaults will be supplied by the program. 
+Feel free to change the HOSTNAME, PORT, and SECONDS_PER_MESSAGE configurations in the *config.ini* file, otherwise defaults will be supplied by the program. 
 
 Default configuration file contains:
 >[DEFAULT]
